@@ -65,8 +65,7 @@ void extract_files(FILE *inputFile) {
 
         // Verificar si el nombre del archivo termina con la extensión .txt.bin
         if (!strstr(fileName, ".txt.bin")) {
-            //printf("Skipping file with invalid extension: %s\n", fileName);
-            // Salta al siguiente archivo
+            
             // Leer el resto del archivo hasta el siguiente separador
             unsigned char buffer[1024];
             size_t bytesRead;
@@ -105,8 +104,6 @@ void extract_files(FILE *inputFile) {
                 fwrite(buffer, 1, bytesRead, outputFile);
             }
 
-            // Introducir una pausa después de cada bloque de datos leído y escrito
-            // sleep(1); // Pausar 1 segundo
         }
 
         fclose(outputFile);
@@ -115,8 +112,6 @@ void extract_files(FILE *inputFile) {
             exit(1);
         }
 
-        // Introducir una pausa después de cada archivo
-        //sleep(1); // Pausar 1 segundo
     }
 }
 
