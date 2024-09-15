@@ -49,9 +49,7 @@ int main(int argc, char *argv[]) {
 
     DIR *directorio;
     struct dirent *entrada;
-    /*char fileName[MAX_PATH_LENGTH];
-    char outputFileName[MAX_PATH_LENGTH];
-    char command[MAX_PATH_LENGTH * 3];*/ // Tamaño suficiente para el comando
+    
 
     if ((directorio = opendir(argv[1])) == NULL) {
         perror("No se puede abrir el directorio");
@@ -76,25 +74,7 @@ int main(int argc, char *argv[]) {
       tar->entrada = readdir(directorio);
       pthread_create(&tid[t], NULL, (void *)threadFunction, (void *)tar);
     }
-    //while ((entrada = readdir(directorio)) != NULL) {
-        // Verificar si el archivo tiene extensión .txt
-        /*if (strstr(entrada->d_name, ".txt") != NULL) {
-            // Preparar los nombres de archivo y de salida
-            snprintf(fileName, sizeof(fileName), "%s/%s", argv[1], entrada->d_name);
-            snprintf(outputFileName, sizeof(outputFileName), "%s.bin", entrada->d_name);
-
-            // Construir el comando
-            snprintf(command, sizeof(command), "./encode %s %s", fileName, outputFileName);
-
-            // Ejecutar el comando
-            int returnCode = system(command);
-
-            // Verificar el código de retorno
-            if (returnCode != 0) {
-                fprintf(stderr, "Error procesando el archivo: %s\n", entrada->d_name);
-            }
-        }*/
-    //}
+    
     for (int t = 0; t < fileCount; t++) {
         pthread_join(tid[t], NULL);
     }
