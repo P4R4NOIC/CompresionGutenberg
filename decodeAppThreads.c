@@ -209,32 +209,7 @@ int main(int argc, char *argv[]) {
       entrada = readdir(directorio);
       pthread_create(&tid[t], NULL, (void *)threadFunction, (void *)entrada);
     }
-    // Iterar sobre todos los archivos en el directorio
-    /*while ((entrada = readdir(directorio)) != NULL) {
-        // Verificar si el archivo tiene extensión .bin y no es 'comprimido.bin'
-        if (strstr(entrada->d_name, ".bin") != NULL && strcmp(entrada->d_name, "comprimido.bin") != 0) {
-            // Preparar la ruta completa del archivo
-            snprintf(filePath, sizeof(filePath), "%s", entrada->d_name);
-
-            // Construir el comando para ejecutar decode
-            snprintf(command, sizeof(command), "./decode %s", filePath);
-
-            // Ejecutar el comando
-            int returnCode = system(command);
-
-            // Verificar el código de retorno
-            if (returnCode != 0) {
-                fprintf(stderr, "Error procesando el archivo: %s\n", entrada->d_name);
-            }
-
-            // Borrar el archivo después de procesarlo
-            if (remove(filePath) != 0) {
-                perror("Error al eliminar el archivo");
-            } else {
-                //printf("Archivo %s eliminado exitosamente.\n", filePath);
-            }
-        }
-    }*/
+    
     for (int t = 0; t < fileCount; t++) {
         pthread_join(tid[t], NULL);
     }
