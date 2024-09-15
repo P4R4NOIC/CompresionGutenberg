@@ -1,3 +1,12 @@
+"Compresión Gutenberg"
+
+Múltiples programas de compresión y descompresión que utilizan el algoritmo de Huffman para realizar dichas tareas.
+
+  Autores:
+  Dylan Mora Corrales
+  Fernando Gross Hernández
+  Roberto Vindas Hernández
+  
 ### Primero, da permisos de ejecución al script:
 chmod +x install.sh
 
