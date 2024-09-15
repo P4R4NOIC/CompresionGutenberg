@@ -1,30 +1,63 @@
-"Compresión Gutenberg"
+# Compresión Gutenberg
 
-Múltiples programas de compresión y descompresión que utilizan el algoritmo de Huffman para realizar dichas tareas.
+Este proyecto contiene múltiples programas de compresión y descompresión que utilizan el algoritmo de Huffman.
 
-  Autores:
-  Dylan Mora Corrales
-  Fernando Gross Hernández
-  Roberto Vindas Hernández
-  
-### Primero, da permisos de ejecución al script:
-chmod +x install.sh
+## Autores
+- Dylan Mora Corrales
+- Fernando Gross Hernández
+- Roberto Vindas Hernández
 
-### Luego, ejecuta el script:
-./install.sh
+## Instalación
 
-## Para utilizar el código correctamente, debe realizar lo siguiente:
-### Al usar un compresor, escribalo de la siguiente manera
-./encodeApp <directorio>
-./encodeAppFork <directorio>
-./encodeAppThreads <directorio>
+Para instalar los ejecutables, siga estos pasos:
 
-## Al usar el descompresor
-./decodeApp comprimido.bin
-./decodeAppFork comprimido.bin
-./decodeAppThreads comprimido.bin
-## Nota: Al usar cualquier descompresor, debe de copiar los siguientes 3 archivos en la carpeta donde desea descomprimir los archivos:
-### 1. El ejecutable decodeApp a utilizar
-### 2. El ejecutable decode
-### 3. El comprimido.bin
+1. Da permisos de ejecución al script de instalación:
+    ```bash
+    chmod +x install.sh
+    ```
 
+2. Ejecuta el script de instalación:
+    ```bash
+    ./install.sh
+    ```
+
+## Uso
+
+### Compresión
+
+Para comprimir archivos en un directorio, utilice uno de los siguientes comandos:
+
+- Para compresión básica:
+    ```bash
+    ./encodeApp <directorio>
+    ```
+- Para compresión con procesos (fork):
+    ```bash
+    ./encodeAppFork <directorio>
+    ```
+- Para compresión con hilos (threads):
+    ```bash
+    ./encodeAppThreads <directorio>
+    ```
+
+### Descompresión
+
+Para descomprimir el archivo binario, utilice uno de los siguientes comandos:
+
+- Para descompresión básica:
+    ```bash
+    ./decodeApp comprimido.bin
+    ```
+- Para descompresión con procesos (fork):
+    ```bash
+    ./decodeAppFork comprimido.bin
+    ```
+- Para descompresión con hilos (threads):
+    ```bash
+    ./decodeAppThreads comprimido.bin
+    ```
+
+**Nota:** Antes de usar cualquier descompresor, asegúrese de copiar los siguientes archivos en la carpeta donde desea descomprimir los archivos:
+1. El ejecutable `decodeApp` a utilizar.
+2. El ejecutable `decode`.
+3. El archivo `comprimido.bin`.
